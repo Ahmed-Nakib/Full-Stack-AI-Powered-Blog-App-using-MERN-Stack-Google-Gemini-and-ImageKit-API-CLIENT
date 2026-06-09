@@ -20,12 +20,12 @@ const BlogList = () => {
         {blogCategories.map((Item) => (
             <div key={Item} className='relative'>
                 <button onClick={() => setMenu(Item)}
-                    className={`cursor-pointer text-gray-500 ${menu === Item && 'text-white px-4 pt-0.5'}`}>
+                    className={`cursor-pointer text-gray-300 ${menu === Item && 'text-white px-4 pt-0.5'}`}>
                     {Item}
                     {menu === Item && (
                          <Motion.div layoutId='underline' 
                          transition={{type: 'spring', stiffness: 500, damping: 30}}
-                         className='absolute left-0 right-0 top-0 h-7 -z-10 bg-primary rounded-b-full'></Motion.div>
+                         className='absolute left-0 right-0 top-0 h-7 -z-10 bg-primary rounded-full'></Motion.div>
                     )}
                    
                 </button>

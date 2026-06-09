@@ -76,7 +76,7 @@ const Blog = () => {
         <p className="text-primary py-4 font-medium">
           Published on{Moment(data.createdAt).format("MMMM Do YYYY")}
         </p>
-        <h1 className="text-2xl sm:text-5xl font-semibold max-w-2xl mx-auto text-gray-800">
+        <h1 className="text-2xl sm:text-5xl font-semibold max-w-2xl mx-auto text-white">
           {data.title}
         </h1>
         <h2 className="my-5 max-w-lg truncate mx-auto">{data.subTitle}</h2>
