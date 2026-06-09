@@ -1,29 +1,48 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { assets } from '../../assets/assets'
+import {
+  FiHome,
+  FiPlusSquare,
+  FiList,
+  FiMessageCircle
+} from 'react-icons/fi'
 
 const Sidebar = () => {
+
+  const linkClass = ({ isActive }) =>
+    `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer transition-all duration-200
+    ${isActive
+      ? "bg-primary/10 border-r-4 border-primary text-primary"
+      : "text-primary/70 hover:bg-primary/5"
+    }`
+
   return (
     <div className='flex flex-col border-r border-gray-200 min-h-full pt-6'>
-      <NavLink end={true} to={'/admin'} className={({isActive}) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-primary/10 border-r-4 border-primary "}`}>
-        <img src={assets.home_icon} alt="" className='min-w-4 w-5' />
-        <p className='hidden md:inline-block'>Dashboard</p>
+
+      {/* Dashboard */}
+      <NavLink end to={'/admin'} className={linkClass}>
+        <FiHome className='text-xl text-primary' />
+        <p className='hidden md:inline-block text-white'>Dashboard</p>
       </NavLink>
 
-      <NavLink to={'/admin/addBlog'} className={({isActive}) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-primary/10 border-r-4 border-primary "}`}>
-        <img src={assets.add_icon} alt="" className='min-w-4 w-5' />
-        <p className='hidden md:inline-block'>AddBlogs</p>
+      {/* Add Blog */}
+      <NavLink to={'/admin/addBlog'} className={linkClass}>
+        <FiPlusSquare className='text-xl text-primary' />
+        <p className='hidden md:inline-block text-white'>Add Blogs</p>
       </NavLink>
 
-      <NavLink to={'/admin/listBlog'} className={({isActive}) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-primary/10 border-r-4 border-primary "}`}>
-        <img src={assets.list_icon} alt="" className='min-w-4 w-5' />
-        <p className='hidden md:inline-block'>ListBlogs</p>
+      {/* List Blog */}
+      <NavLink to={'/admin/listBlog'} className={linkClass}>
+        <FiList className='text-xl text-primary' />
+        <p className='hidden md:inline-block text-white'>List Blogs</p>
       </NavLink>
 
-      <NavLink to={'/admin/comments'} className={({isActive}) => `flex items-center gap-3 py-3.5 px-3 md:px-9 md:min-w-64 cursor-pointer ${isActive && "bg-primary/10 border-r-4 border-primary "}`}>
-        <img src={assets.comment_icon} alt="" className='min-w-4 w-5' />
-        <p className='hidden md:inline-block'>Comment</p>
+      {/* Comments */}
+      <NavLink to={'/admin/comments'} className={linkClass}>
+        <FiMessageCircle className='text-xl text-primary' />
+        <p className='hidden md:inline-block text-white'>Comments</p>
       </NavLink>
+
     </div>
   )
 }
